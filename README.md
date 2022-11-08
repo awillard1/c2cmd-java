@@ -2,7 +2,7 @@
 
 ```Urls have to be added to the Java source code.```
 
-To create the jar and run:
+To create the jar and run within its own directory:
 
 ```
 javac c2cmd.java
