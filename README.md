@@ -8,7 +8,7 @@ To create the jar and run within its own directory:
 javac c2cmd.java
 jar -cvmf exfil.mf exfil.jar *
 ```
-To run it (with you url changes compiled above) 
+To run it (with your url changes compiled above) 
 ```
 java -jar exfil.jar
 ```
